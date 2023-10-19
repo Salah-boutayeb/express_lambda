@@ -1,11 +1,12 @@
 {
   "name": "recipes",
   "version": "1.0.0",
-  "desrciption": "",
+  "description": "",
   "main": "api.js",
-  "srcipts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve src",
-    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
+  "scripts": {
+    "dev": "nodemon api.js",
+    "build": "netlify deploy --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.33.0",
     "sequelize-cli": "^6.6.1",
+    "netlify-cli": "^12.7.2",
     "netlify-lambda": "^2.0.15",
     "serverless-http": "^2.7.0"
   }
