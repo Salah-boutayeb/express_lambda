@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  go-app:
+    container_name: express-app
+    image: salaheddine10/express-api:V1.0
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      db_username: postgres
+      db_password: salah2000
+      db_host: go_db
+      database: recipes_db
+      DEV_DATABASE_URL: postgres://postgres:salah2000@127.0.0.1:5432/recipes_db
+      JWT_SECRET: mySecret
+    ports:
+      - "5000:5000"
+    depends_on:
+      - go_db
+  go_db:
+    container_name: go_db
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: salah2000
+      POSTGRES_USER: postgres
+      POSTGRES_DB: recipes_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}

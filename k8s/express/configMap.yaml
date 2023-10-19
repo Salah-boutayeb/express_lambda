@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: express-configmap
+data:
+  db_username: postgres
+  db_password: salah2000
+  db_host: postgresdb-service
+  database: recipes_db
+  JWT_SECRET: mySecret
+  PORT: "5000"
