@@ -1,11 +1,11 @@
 {
   "name": "recipes",
   "version": "1.0.0",
-  "description": "",
+  "desrciption": "",
   "main": "api.js",
-  "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve functions",
-    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build functions"
+  "srcipts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve src",
+    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
   },
   "author": "",
   "license": "ISC",
