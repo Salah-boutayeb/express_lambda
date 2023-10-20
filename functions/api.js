@@ -26,7 +26,10 @@ app.use(
 );
 app.use("/.netlify/functions/api/recipes", require("../routes/recipeRoutes"));
 
+const port = 5000;
 app.use(errorHandler);
 db.sequelize.sync({ alter: true });
-
+// app.listen(port, () => {
+//   console.log(`server's runing on port ${port}`);
+// });
 module.exports.handler = serverless(app);
