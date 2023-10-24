@@ -8,8 +8,9 @@ const generateJwt = (id) => {
   });
 };
 
-const registerUser = asyncHandler(async (req, res) => {
+const registerUser = async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
+
   if (!lastname || !firstname || !email || !password) {
     res.status(400);
     throw new Error("please fill all fields");
@@ -41,7 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("invalid user data");
   }
-});
+};
 /*  *********************************************************  */
 const userLogin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;

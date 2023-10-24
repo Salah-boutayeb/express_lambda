@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const serverless = require("serverless-http");
-const db = require("../database/models");
-const { errorHandler } = require("../middleware/middleware");
+const db = require("./database/models");
+const { errorHandler } = require("./middleware/middleware");
 const dotenv = require("dotenv").config();
 const router = express.Router();
 // express middleware
@@ -15,16 +15,16 @@ app.use(cors());
 
 // use routes here
 router.get("/", (req, res) => {
-  res.send("App is running..");
+  res.send("App v1:0 is running..");
 });
 
 app.use("/.netlify/functions/api", router);
-app.use("/.netlify/functions/api/users", require("../routes/userRoutes"));
+app.use("/.netlify/functions/api/users", require("./routes/userRoutes"));
 app.use(
   "/.netlify/functions/api/categories",
-  require("../routes/categoryRoutes")
+  require("./routes/categoryRoutes")
 );
-app.use("/.netlify/functions/api/recipes", require("../routes/recipeRoutes"));
+app.use("/.netlify/functions/api/recipes", require("./routes/recipeRoutes"));
 
 const port = 5000;
 app.use(errorHandler);
