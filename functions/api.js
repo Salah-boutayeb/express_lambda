@@ -15,7 +15,7 @@ app.use(cors());
 
 // use routes here
 router.get("/", (req, res) => {
-  res.send("App v1:0 is running..");
+  res.send("App v1:2 is running..");
 });
 
 app.use("/.netlify/functions/api", router);
